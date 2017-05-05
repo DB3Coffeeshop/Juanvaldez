@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 #from django.http import HttpResponseNotFound, HttpResponse
-from .forms import dpto_form, client_form
-from .models import product
+from .forms import Dpto_form, Client_form
+from .models import Product
 
 
 class principal_view(ListView):
 	context_object_name = 'list_products'
-	queryset = product.objects.all()
+	queryset = Product.objects.all()
 	template_name = 'coffeeshop/Pr.html'
 #def index(request):
 #	if request.method == 'POST':

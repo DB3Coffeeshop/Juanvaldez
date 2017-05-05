@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class Departament(models.Model):
-	id_dpto = models.IntegerField()
+	id_dpto = models.IntegerField(primary_key = True)
 	dpto_name = models.CharField(max_length=30, unique = True)
 
 	
@@ -11,7 +11,7 @@ class Departament(models.Model):
 
 
 class City(models.Model):
-	id_city = models.IntegerField()
+	id_city = models.IntegerField(primary_key = True)
 	city_name = models.CharField(max_length=30, unique = True)
 	id_dpto = models.ForeignKey(Departament, on_delete = models.CASCADE)
 
@@ -21,7 +21,7 @@ class City(models.Model):
 
 
 class Provider(models.Model):
-	id_provider = models.IntegerField()
+	id_provider = models.IntegerField(primary_key = True)
 	provider_name = models.CharField(max_length = 30)
 	tel_provider = models.IntegerField(unique = True)
 	id_city = models.ForeignKey(City, on_delete = models.CASCADE)
@@ -33,7 +33,7 @@ class Provider(models.Model):
 
 class Client(models.Model):
 	name_client = models.CharField(max_length=20)
-	id_client = models.IntegerField()
+	id_client = models.IntegerField(primary_key = True)
 	id_city = models.ForeignKey(City, on_delete = models.CASCADE)
 
 
@@ -41,7 +41,7 @@ class Client(models.Model):
 		return self.name_client
 
 
-class description_bill_payment(models.Model):
+class Description_bill_payment(models.Model):
 	payment_modes = {
 			('CC', 'Credit Card'),
 			('CM', 'Cash Money'),
@@ -57,10 +57,10 @@ class description_bill_payment(models.Model):
 
 
 class Bill_payment(models.Model):
-	id_bill_payment = models.IntegerField()
+	id_bill_payment = models.IntegerField(primary_key = True)
 	id_client = models.ForeignKey(Client, on_delete = models.CASCADE)
 	id_payment = models.ForeignKey(Description_bill_payment, on_delete = models.CASCADE)
-	payment_date = models.DateTimeField()
+	payment_date = models.DateTimeField(auto_now_add=True)
 	
 
 	def __str__(self):
@@ -69,7 +69,7 @@ class Bill_payment(models.Model):
 
 
 class Product_type(models.Model):
-	id_product_type = models.IntegerField()
+	id_product_type = models.IntegerField(primary_key = True)
 	product_type = models.CharField(max_length = 30, unique = True)
 	product_description = models.TextField(max_length = 50)
 	
@@ -80,7 +80,7 @@ class Product_type(models.Model):
 
 
 class Product(models.Model):
-	id_product = models.IntegerField()
+	id_product = models.IntegerField(primary_key = True)
 	name_product = models.CharField(max_length = 20, unique = True)
 	price = models.DecimalField(max_digits = 8, decimal_places = 3)
 	stock = models.IntegerField()
@@ -94,7 +94,7 @@ class Product(models.Model):
 
 
 class Sale(models.Model):
-	id_sale = models.IntegerField()
+	id_sale = models.IntegerField(primary_key = True)
 	id_bill_payment = models.ForeignKey(Bill_payment, on_delete = models.CASCADE)
 	quantity_sold = models.IntegerField()
 	id_product = models.ForeignKey(Product, on_delete = models.CASCADE)
