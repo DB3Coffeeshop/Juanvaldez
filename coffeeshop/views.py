@@ -1,14 +1,19 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 #from django.http import HttpResponseNotFound, HttpResponse
 from .forms import Dpto_form, Client_form
 from .models import Product
 
 
-class principal_view(ListView):
-	context_object_name = 'list_products'
-	queryset = Product.objects.all()
-	template_name = 'coffeeshop/Pr.html'
+def principal_view(request):
+	list_products = Product.objects.all()
+	context = {'list_products': list_products}
+	return render(request, 'coffeeshop/Pr.html', context)
+
+
+def description_view(request, product_id):
+	product = get_object_or_404(Product, pk=product_id)
+	return render(request, 'coffeeshop/description.html', {'product': product})
 #def index(request):
 #	if request.method == 'POST':
 #		form = dpto_form(request.POST)

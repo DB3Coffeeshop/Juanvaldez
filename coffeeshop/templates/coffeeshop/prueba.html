@@ -3,7 +3,7 @@
 {% if list_products %}
 
 	{% for product in list_products %}
-	<h1> {{ product.name_product }} </h1>
+		<a href="{% url 'coffeeshop:description' product.id_product %}"> {{ product.name_product }} </a>
 	{% endfor %}
 
 {% else %}
