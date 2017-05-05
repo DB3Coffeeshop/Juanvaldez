@@ -1,0 +1,13 @@
+{% extends 'coffeeshop/base.html' %}
+{% block content %}
+{% if list_products %}
+
+	{% for product in list_products %}
+	<h1> {{ product.name_product }} </h1>
+	{% endfor %}
+
+{% else %}
+	<p> No product here </p>
+{% endif %}
+{% endblock content %}
+

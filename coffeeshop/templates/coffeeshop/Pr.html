@@ -1,0 +1,175 @@
+{% load static %}
+<html>
+
+<head>
+
+
+	<link rel="shortcut icon" href="{% static 'coffeeshop/img/logo.png' %}" type="image/png">
+<link rel="stylesheet" type="text/css" href="{% static 'coffeeshop/css/style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+<meta charset="utf-8">
+
+
+<script type="text/javascript">
+
+function loginB() {
+
+	document.getElementById("Log1").innerHTML = "<div class='contenedor'><img src={% static 'coffeeshop/img/cerrar.png' %} width='35' id='cerrar' onclick='loginA()''><br><font color=#FFF>Login</font><img src={% static 'coffeeshop/img/browser.png' %} width='75'><br><br><br><form name='for1' action='Prb.html' method='post' name='f1' onSubmit='return validacion();'><input type='text' placeholder='Usuario' maxlength='18' id='tb1'  name='tbt1'  onkeyup='textbox1()' onblur='textbox1a()'' onclick='textbox1()' autocomplete='off' required><br><br><br><input type='password' placeholder='Contraseña' maxlength='18' id='tb2' name='tbt2'  onkeyup='textbox2()' onblur='textbox2a()' onclick='textbox2()' autocomplete='off' required><br><br><br><input type='submit' class='But' value='Ingresar'></form></div>";
+        document.getElementById("Log2").innerHTML = "<form class='form'></form>";
+        document.getElementById("body").style='overflow-y: hidden';
+        document.getElementById("f2").style = "z-index: 0;";
+        document.getElementById("f4").style = "z-index: 0;";
+  
+}
+</script>
+<script type="text/javascript" src="{% static 'coffeeshop/js/Js.js' %}"></script>
+
+<title>Juan Valdez</title>
+
+</head>
+
+<body id="body"> <!-- style="overflow-y:hidden" -->
+
+<header id="header">
+
+<div id="Log2"> 
+
+</div>
+    
+    <nav>
+        <br><br><a onclick="loginB()"> <h6>Login</h6> </a>
+	<a href="Pr2.html"> <img src="{% static 'coffeeshop/img/COP.png' %}" width="30" id="COP"> <div id="h8">COP</div></a>
+    </nav>
+    
+    <div id="logo1">
+        
+	    <img src="{% static 'coffeeshop/img/icono2222.png' %}" width="200">
+
+        
+
+    </div> 
+
+    
+
+</header>
+
+<div id="f4">
+</div>
+
+<div id="f2">
+  
+  <center><input type="text" id="tb" placeholder="Producto" name="vrct1" onkeyup="busqueda()"><input type="button" id="b" value="Buscar"></center>
+</div>
+ 
+<div id="Log1"> 
+ 
+</div>  
+ 
+<table>
+    <tr>
+        
+        <td><section id="content-left">
+        
+<div id="mapa"><iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d64583623.072604604!2d16.679116!3d8.891535!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2s!4v1490129944972" frameborder="0" style="border:0; width: 350; height: 400" allowfullscreen></iframe></div><div id="h7">Echa un vistazo al mapa</div>
+
+<br><br>
+
+<section id="content-banderas">
+<h1>Algunos de los puntos Juan Valdez</h1>
+
+  <table border="0" id="tp">
+    <tr>
+	    <td height="200" width="200"><img src="{% static 'coffeeshop/img/BAlemania.png' %}" height="200" width="200" id="imb" onmouseover="this.src={% static 'coffeeshop/img/IAlemania.jpg' %} " onmouseout="this.src={% static 'coffeeshop/img/BAlemania.png' %}"></td>
+    </tr>
+  </table><br>
+
+  <table border="0" id="tp">
+    <tr>
+	    <td height="200" width="200"><img src="{% static 'coffeeshop/img/BIrlanda.png' %}" height="200" width="200" id="imb" onmouseover="this.src={% static 'coffeeshop/img/IIrlanda.jpg' %}" onmouseout="this.src={% static 'coffeeshop/img/BIrlanda.png' %}"></td>
+    </tr>
+  </table><br>
+
+  <table border="0" id="tp">
+    <tr>
+	    <td height="200" width="200"><img src="{% static 'coffeeshop/img/BIslandia.png' %}" height="200" width="200" id="imb" onmouseover="this.src={% static 'coffeeshop/img/IIslandia.jpg' %}" onmouseout="this.src={% static 'imagenes/BIslandia.png' %}"></td>
+    </tr>
+  </table><br>
+
+  <table border="0" id="tp">
+    <tr>
+	    <td height="200" width="200"><img src="{% static 'coffeeshop/img/BDinamarca.png' %}" height="200" width="200" id="imb" onmouseover="this.src={% static 'coffeeshop/img/IDinamarca.jpg' %}" onmouseout="this.src={% static 'coffeeshop/img/BDinamarca.png' %}"></td>
+    </tr>
+  </table><br>
+
+  <table border="0" id="tp">
+    <tr>
+	    <td height="200" width="200"><img src="{% static 'coffeeshop/img/BEspana.png' %}" height="200" width="200" id="imb" onmouseover="this.src={% static 'coffeeshop/img/IEspana.jpg' %}" onmouseout="this.src={% static 'coffeeshop/img/BEspana.png' %}"></td>
+    </tr>
+  </table><br>
+
+  <table border="0" id="tp">
+    <tr>
+	    <td height="200" width="200"><img src="{% static 'coffeeshop/img/BEspana.png' %}" height="200" width="200" id="imb" onmouseover="this.src={% static 'coffeeshop/img/IFrancia.jpg' %}" onmouseout="this.src={% static 'coffeeshop/img/IFrancia.png' %}"></td>
+    </tr>
+  </table>
+
+  </section>
+      
+</section></td>
+
+        <td> <section id="content-right">
+
+  <div class="content">
+ <h1> Productos Juan Valdez </h1>
+{% if list_products %}
+  {% for product in list_products %}
+	<div id="divL"><span>{{product.name_product}}</span> 
+         
+         <h4><form>
+  <p class="clasificacion">
+    <input id="radio1" type="radio" name="estrellas" value="5"><!--
+    --><label for="radio1">★</label><!--
+    --><input id="radio2" type="radio" name="estrellas" value="4" checked><!--
+    --><label for="radio2">★</label><!--
+    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+    --><label for="radio3">★</label><!--
+    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+    --><label for="radio4">★</label><!--
+    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+    --><label for="radio5">★</label>
+  </p>
+</form></h4>
+	<h5>COP {{ product.price }} <input type="button" value="Leer más" id="butmas"> </h5>
+
+    <table border="0" id="t1">
+    
+      <tr>
+        <td height="200" width="800">
+        
+          <table border="0" id="t2">
+          
+            <tr>
+              <td height="170" width="170">
+              
+		      <img src="{% static 'coffeeshop/img/' %}{{product.img_product}}" height="170" width="170" id="img">
+
+              </td> 
+
+          </table>
+
+        </td>
+      </tr>   
+   
+    </table></div>      
+    {% endfor %}
+{% else %}
+	<p> No products in data base </p>
+{% endif %}
+</table>
+
+
+<div id="f1"><center> <a href="https://www.facebook.com/" target="_blank"><img src="{% static 'coffeeshop/img/f.png' %}"  width="50"></a> <a href="https://twitter.com/" target="_blank"><img src="{% static 'coffeeshop/img/t.png' %}" width="50"></a> <a href="https://plus.google.com/" target="_blank"><img src="{% static 'coffeeshop/img/g.png' %}" width="50"></a> </center></div>
+<div id="f3"><br><center>Copyright 2017 JuanValdez | Todos los derechos reservados.<center></div>
+</body>
+
+</html>
