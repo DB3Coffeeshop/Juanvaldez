@@ -1,12 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
 <html>
 	<head>
-		<title> Hi world </title>
-	</head>
+		<title>{% block title %}User{% endblock %}</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="{% static 'coffeeshop/css/style_user.css' %}" />
+	</head>	
+
 	<body>
-		<h1> Esto es una prueba de los blocks </h1>
+		<header>
+			<div class="wrapper">
+				<div class="logo"><img src="{% static 'coffeeshop/img/icono2222.png' %}"></div>
+				{% block pestana-usuario %}
+				{% endblock %}
+			</div>
+		</header>
 
-		{% block content %}
-		{% endblock content %}
+		{% block pestanas %}
+		{% endblock %}
 
+		{% block admi-areatrabajo %}
+		{% endblock %}
+		
+		{% block admi-img %}
+		{% endblock %}
+
+	<div id="f1"><center> <a href="https://www.facebook.com/" target="_blank"><img src="{% static 'coffeeshop/img/f.png' %}" width="50"></a> <a href="https://twitter.com/" target="_blank"><img src="{% static 'coffeeshop/img/t.png' %}" width="50"></a> <a href="https://plus.google.com/" target="_blank"><img src="{% static 'coffeeshop/img/g.png' %}" width="50"></a> </center></div>
+		<div id="f3"><br><center>Copyright 2017 JuanValdez | Todos los derechos reservados.<center></div>
 	</body>
 </html>

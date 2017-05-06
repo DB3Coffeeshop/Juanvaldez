@@ -1,0 +1,27 @@
+{% extends 'coffeeshop/base.html' %}
+{% load static %}
+
+{% block title %} ADMIN-Juan Valdez {% endblock %}
+
+{% block pestanas %}
+<div class="butPrinci">
+  <ul>
+  {% block pestanasAD %}
+  {% endblock %}
+  </ul>
+</div>
+{% endblock %}
+
+{% block admi-areatrabajo %}
+	<div class="admi-areatrabajo">
+	{% block admi-areatrabajoAD %}
+	{% endblock %}
+	</div>
+{% endblock %}
+ 
+{% block admi-img %}
+<div class="imagenes">
+	<img class="imagenes1" src="{% static 'coffeeshop/img/juanvaldez.png' %}">
+	<img class="imagenes2" src="{% static 'coffeeshop/img/EafitNormal.png' %}">
+</div>
+{% endblock %}

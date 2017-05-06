@@ -1,11 +1,12 @@
-*(
+*{
+	font-family: Arial, sans-serif;
 	margin:0px;
 	padding:0px;
-)
+}
+
 body {
 	background:#fffffa;
 }
-
 
 header {
 	width: 100%;
@@ -17,20 +18,25 @@ header {
 
 .wrapper {
 	width: 90%;
-	max-width: 1000px;
 	margin: auto;
 	overflow: hidden;
+	height: 150px;
 }
-header .logo{
+
+.logo{
+	position: absolute;
 	color: #f2f2f2;
 	font-size: 50px;
 	line-height: 200px;
-	float: none;
+	height: 30px;
 }
+
 header nav {
 	float: right;;
 	line-height: 200px;
+	height: 140px;
 }
+
 header nav a {
 	display: inline-block;
 	color: #fff;
@@ -40,30 +46,20 @@ header nav a {
 	font-size: 20px;
 	font-weight: bold;
 }
+
 header nav a:hover{
 	background: #354C81;
 	border-radius: 50px;
 }
- .header2 {
- 	position: fixed;
- 	font-size: 30px;
- }
- .header2 .logo{
- 	line-height: 100px;
- 	font-size: 30px;
- }
- .header2 nav {
- 	line-height: 100px;
- }
-/** PARTE DE ABAJO*/
- #f1 {
 
+/** PARTE DE ABAJO*/
+#f1 {
   background: #252932;
   height: 80px;
   width: 100%;
   padding-top: 27px;
-
 }
+
 #f3 {
   width: 100%;
   height: 90px;
@@ -71,4 +67,82 @@ header nav a:hover{
   color: #FFF;
   font-size: 13px;
   padding-top: 35px;
+}
+
+/** Css admin**/
+button{
+	font-size: 25px;
+	background-color: #9b0f26;
+	color: #9a9a9a;
+	color: white;
+	width: 200px;
+	height: 30px;
+	border: 0;
+	transition: all 500ms ease;
+}
+
+button:hover{
+	background-color: #7f0c20;
+    cursor: pointer;
+}
+
+.estoy{
+	border-right-width: 0;
+	background-color: rgb(194,194,194);
+}
+
+.butPrinci{
+	font-size: 25px;
+	width: 17%;
+	height: 30%;
+	text-align: center;
+	top: 30px;
+	border: 3px;
+}
+
+.butPrinci ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.butPrinci ul li a {
+	transition: all 500ms ease;
+	color: black;
+    text-decoration: none;
+    display: block;
+    padding: 5%;
+}
+
+.butPrinci ul li a:hover {
+    background: #B22222;
+    color: white;
+}
+
+.admi-areatrabajo{
+	position: absolute;
+	left: 17%;
+	top: 150px;
+	width: 83%;
+	height: 81%;
+	background-color: rgb(194,194,194);
+}
+
+.imagenes{
+	left: 0;
+	width: 15%;
+	bottom: 0px;
+}
+
+.imagenes1{
+	width: 100%;
+	height: 30%;
+	bottom: 0;
+}
+
+.imagenes2{
+	left: 0;
+	width: 100%;
+	height: 30%;
+	bottom: 0;
 }
