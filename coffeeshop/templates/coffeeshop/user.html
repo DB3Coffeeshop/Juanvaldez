@@ -1,13 +1,14 @@
+{% load static %}
 <html>
 <head>
 	<title>User</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="style_user.css" />
+	<link rel="stylesheet" type="text/css" href="{% static 'coffeeshop/css/style_user.css' %}" />
 </head>	
 <body>
 	<header>
 		<div class="wrapper">
-			<div class="logo"><img src="Imagenes/icono2222.png" width="300"></div>
+			<div class="logo"><img src="{% static 'coffeeshop/img/icono2222.png' %}" width="300"></div>
 
 			<nav>
 				<a href="#">Inicio</a>
@@ -28,7 +29,7 @@ James Naismith analizó las actividades deportivas que se practicaban en la épo
 
 </h2>
 
-	<div id="f1"><center> <a href="https://www.facebook.com/" target="_blank"><img src="Imagenes/f.png" width="50"></a> <a href="https://twitter.com/" target="_blank"><img src="Imagenes/t.png" width="50"></a> <a href="https://plus.google.com/" target="_blank"><img src="Imagenes/g.png" width="50"></a> </center></div>
+	<div id="f1"><center> <a href="https://www.facebook.com/" target="_blank"><img src="{% static 'coffeeshop/img/f.png' %}" width="50"></a> <a href="https://twitter.com/" target="_blank"><img src="{% static 'coffeeshop/img/t.png' %}" width="50"></a> <a href="https://plus.google.com/" target="_blank"><img src="{% static 'coffeeshop/img/g.png' %}" width="50"></a> </center></div>
 	<div id="f3"><br><center>Copyright 2017 JuanValdez | Todos los derechos reservados.<center></div>
 
 </body>

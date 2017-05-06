@@ -13,7 +13,7 @@ def principal_view(request):
 
 def description_view(request, product_id):
 	product = get_object_or_404(Product, pk=product_id)
-	return render(request, 'coffeeshop/description.html', {'product': product})
+	return render(request, 'coffeeshop/user.html', {'product': product})
 #def index(request):
 #	if request.method == 'POST':
 #		form = dpto_form(request.POST)
