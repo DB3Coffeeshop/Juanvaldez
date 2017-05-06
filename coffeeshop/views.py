@@ -14,6 +14,30 @@ def principal_view(request):
 def description_view(request, product_id):
 	product = get_object_or_404(Product, pk=product_id)
 	return render(request, 'coffeeshop/description.html', {'product': product})
+
+
+def admin_view(request):
+	return render(request, 'coffeeshop/user-base.html')
+
+
+def h1(request):
+	return render(request, 'coffeeshop/h1.html')
+
+
+def h2(request):
+	return render(request, 'coffeeshop/h2.html')
+
+
+def h3(request):
+	return render(request, 'coffeeshop/h3.html')
+
+
+def h4(request):
+	return render(request, 'coffeeshop/h4.html')
+
+
+def view_x(request):
+	return render(request, 'coffeeshop/admin-registrar_venta.html')
 #def index(request):
 #	if request.method == 'POST':
 #		form = dpto_form(request.POST)
