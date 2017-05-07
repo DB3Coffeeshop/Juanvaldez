@@ -47,7 +47,7 @@ class Description_bill_payment(models.Model):
 			('CM', 'Cash Money'),
 			}
 
-	id_payment = models.IntegerField()
+	id_payment = models.IntegerField(default=0)
 	pay_mode = models.CharField(max_length = 2, choices = payment_modes, default = 'CM')
 	employee_name = models.CharField(max_length=20)
 
@@ -60,19 +60,35 @@ class Bill_payment(models.Model):
 	id_bill_payment = models.IntegerField(primary_key = True)
 	id_client = models.ForeignKey(Client, on_delete = models.CASCADE)
 	id_payment = models.ForeignKey(Description_bill_payment, on_delete = models.CASCADE)
-	payment_date = models.DateTimeField(auto_now_add=True)
+	payment_date = models.DateTimeField()
 	
 
 	def __str__(self):
-		return self.id_bill_payment
+		return str(self.id_bill_payment)
 
+
+class Combo(models.Model):
+	id_combo = models.IntegerField(primary_key = True)
+	combo_name = models.CharField(max_length = 30)
+	price = models.DecimalField(max_digits = 8, decimal_places = 3)
+
+	def __str__(self):
+		return self.combo_name
+
+
+class Promotion(models.Model):
+	id_promotion = models.IntegerField(default=0)
+	percent_promotion = models.IntegerField(default=0)
+
+	def __str__(self):
+		return str(self.id_promotion)
 
 
 class Product_type(models.Model):
 	id_product_type = models.IntegerField(primary_key = True)
 	product_type = models.CharField(max_length = 30, unique = True)
 	product_description = models.TextField(max_length = 50)
-	
+	id_promotion = models.ForeignKey(Promotion, on_delete = models.CASCADE)
 	
 	def __str__(self):
 		return str(self.id_product_type)
@@ -83,10 +99,11 @@ class Product(models.Model):
 	id_product = models.IntegerField(primary_key = True)
 	name_product = models.CharField(max_length = 20, unique = True)
 	price = models.DecimalField(max_digits = 8, decimal_places = 3)
-	stock = models.IntegerField()
+	stock = models.IntegerField(default=0)
 	id_provider = models.ForeignKey(Provider, on_delete = models.CASCADE)
 	id_product_type = models.ForeignKey(Product_type, on_delete = models.CASCADE)
 	img_product = models.CharField(max_length = 30, unique = True)  #Puts here the img rute on our proyect
+	id_promotion = models.ForeignKey(Promotion, on_delete = models.CASCADE)
 
 	def __str__(self):
 		return self.name_product
@@ -102,4 +119,4 @@ class Sale(models.Model):
 
 
 	def __str__(self):
-		return self.id_sale
+		return str(self.id_sale)

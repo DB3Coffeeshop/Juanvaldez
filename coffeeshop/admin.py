@@ -10,4 +10,5 @@ admin.site.register(Bill_payment)
 admin.site.register(Product_type)
 admin.site.register(Product)
 admin.site.register(Sale)
-
+admin.site.register(Promotion)
+admin.site.register(Combo)
