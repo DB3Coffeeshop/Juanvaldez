@@ -104,6 +104,8 @@ class Product(models.Model):
 	id_product_type = models.ForeignKey(Product_type, on_delete = models.CASCADE)
 	img_product = models.CharField(max_length = 30, unique = True)  #Puts here the img rute on our proyect
 	id_promotion = models.ForeignKey(Promotion, on_delete = models.CASCADE)
+	id_combo = models.ForeignKey(Combo, on_delete = models.CASCADE)
+
 
 	def __str__(self):
 		return self.name_product
