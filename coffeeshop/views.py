@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView
 #from django.http import HttpResponseNotFound, HttpResponse
-from .forms import Dpto_form, Client_form
+#from .forms import Dpto_form, Client_form
 from .models import Product
 
 
@@ -37,7 +37,7 @@ def h4(request):
 
 
 def view_x(request):
-	return render(request, 'coffeeshop/admin-registrar_venta.html')
+	return redirect('description_view', pk=1)
 #def index(request):
 #	if request.method == 'POST':
 #		form = dpto_form(request.POST)

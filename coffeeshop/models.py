@@ -67,15 +67,6 @@ class Bill_payment(models.Model):
 		return str(self.id_bill_payment)
 
 
-class Combo(models.Model):
-	id_combo = models.IntegerField(primary_key = True)
-	combo_name = models.CharField(max_length = 30)
-	price = models.DecimalField(max_digits = 8, decimal_places = 3)
-	quantity_products = models.IntegerField(default = 0)
-
-	def __str__(self):
-		return self.combo_name
-
 
 class Promotion(models.Model):
 	id_promotion = models.IntegerField(default=0)
@@ -103,13 +94,24 @@ class Product(models.Model):
 	stock = models.IntegerField(default=0)
 	id_provider = models.ForeignKey(Provider, on_delete = models.CASCADE)
 	id_product_type = models.ForeignKey(Product_type, on_delete = models.CASCADE)
-	img_product = models.CharField(max_length = 30, unique = True)  #Puts here the img rute on our proyect
-	id_promotion = models.ForeignKey(Promotion, on_delete = models.CASCADE)
-	id_combo = models.ForeignKey(Combo, on_delete = models.CASCADE)
+	img_product = models.CharField(max_length = 30, unique = True, null = True)  #Puts here the img rute on our proyect
+	id_promotion = models.ForeignKey(Promotion, on_delete = models.CASCADE, null = True)
 
 
 	def __str__(self):
 		return self.name_product
+
+
+
+class Combo(models.Model):
+	id_combo = models.IntegerField(primary_key = True)
+	id_product = models.ForeignKey(Product, on_delete = models.CASCADE)
+	combo_name = models.CharField(max_length = 30)
+	price = models.DecimalField(max_digits = 8, decimal_places = 3)
+	quantity_products = models.IntegerField(default = 0)
+
+	def __str__(self):
+		return self.combo_name
 
 
 
