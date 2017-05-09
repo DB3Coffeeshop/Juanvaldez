@@ -7,7 +7,7 @@ app_name = 'coffeeshop'
 urlpatterns = [
 
 	url(r'^$', views.principal_view, name='index'),
-	url(r'^user/$', views.admin_view, name='admin'),
+	url(r'^user/$', views.admin_view, name='user'),
 	url(r'^user/h1$', views.h1, name='h1'),
 	url(r'^user/h2$', views.h2, name='h2'),
 	url(r'^user/h3$', views.h3, name='h3'),

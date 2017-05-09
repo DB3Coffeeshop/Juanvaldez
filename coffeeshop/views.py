@@ -37,7 +37,7 @@ def h4(request):
 
 
 def view_x(request):
-	return redirect('description_view', pk=1)
+	pass
 #def index(request):
 #	if request.method == 'POST':
 #		form = dpto_form(request.POST)
