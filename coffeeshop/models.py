@@ -71,6 +71,7 @@ class Combo(models.Model):
 	id_combo = models.IntegerField(primary_key = True)
 	combo_name = models.CharField(max_length = 30)
 	price = models.DecimalField(max_digits = 8, decimal_places = 3)
+	quantity_products = models.IntegerField(default = 0)
 
 	def __str__(self):
 		return self.combo_name
