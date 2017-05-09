@@ -1,1 +1,14 @@
-#2
+{% extends 'coffeeshop/base.html' %}
+{% load static %}
+{% block pestana-usuario %}
+	<nav>
+		<a href="{% url 'coffeeshop:h1' %}">Inicio</a>
+		<a href="{% url 'coffeeshop:h2' %}">Puntos Jv</a>
+		<a href="{% url 'coffeeshop:h3' %}">Promociones</a>
+		<a href="{% url 'coffeeshop:h4' %}">Combos</a>
+	</nav>
+
+{% endblock %}
+{% block admi-areatrabajo %}
+<h1> Esta parte son los puntos jv </h1>
+{% endblock %}
