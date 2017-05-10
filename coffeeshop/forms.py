@@ -1,22 +1,19 @@
 from django.forms import ModelForm
 from django import forms
-from coffeeshop.models import City, Departament, Client, Product
+from coffeeshop.models import City, Departament, Client, Product, Product_type
 
 class Product_form(forms.ModelForm):
 
 	class Meta:
 		model = Product
-		fields = ('id_product', 'name_product', 'price', 'stock')
-		labels = {
-			'id_dpto': ('id departament'),
-			'dpto_name': ('name departament') 
-		}
+		fields = ('id_product', 'name_product', 'price', 'stock', 'id_promotion')
 
-class Client_form(forms.ModelForm):
+
+class Product_type_form(forms.ModelForm):
 
 	class Meta:
-		model = Client
-		fields = ('name_client', 'id_client', 'id_city')
+		model = Product_type
+		fields = ('id_product_type', 'product_type', 'product_description', 'id_promotion')
 	
 	
 

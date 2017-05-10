@@ -1,0 +1,14 @@
+{% extends 'coffeeshop/base.html' %}
+
+{% block pestanas %}
+	<h1> Holaaa </h1>
+	<form method= "POST"> {% csrf_token %}
+
+		{{ form.as_p }}
+		{{ form_2.as_p }}
+		<input type = "submit" name="save">
+	</form>
+{% endblock pestanas %}
+
+
+

@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView
 #from django.http import HttpResponseNotFound, HttpResponse
-#from .forms import Dpto_form, Client_form
-from .models import Product
+from .forms import Product_form, Product_type_form
+from .models import Product, Product_type
 
 
 def principal_view(request):
@@ -55,3 +55,24 @@ def view_x(request):
 #		form_2 = client_form()
 #
 #	return render(request, 'coffeeshop/index.html', {'form': form, 'form_2': form_2})
+
+def index(request):
+	if request.method == 'POST':
+		type_form = Product_type_form(request.POST)
+		product_form = Product_form(request.POST) 
+
+		if type_form.is_valid() and product_form.is_valid():
+			form = type_form.save()
+			print (form.id_product_type)
+			form_2 = product_form.save(commit=False)
+			get_type = Product_type.objects.get(pk=form.id_product_type)
+			print (get_type.id_product_type)
+			form_2.id_provider = get_type
+			form_2.save()
+			html = '<h1>Thanks</h1>'
+			return HttpResponse(html)
+	else:
+		product_form = Product_form()
+		type_form = Product_type_form()
+
+	return render(request, 'coffeeshop/form_example.html', {'form': product_form, 'form_2': type_form})
