@@ -37,7 +37,7 @@ def h4(request):
 
 
 def view_x(request):
-	pass
+	return render(request, 'coffeeshop/admin-registrar_venta.html')
 #def index(request):
 #	if request.method == 'POST':
 #		form = dpto_form(request.POST)
