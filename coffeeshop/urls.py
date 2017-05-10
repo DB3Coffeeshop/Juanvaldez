@@ -12,6 +12,7 @@ urlpatterns = [
 	url(r'^user/h2$', views.h2, name='h2'),
 	url(r'^user/h3$', views.h3, name='h3'),
 	url(r'^user/h4$', views.h4, name='h4'),
+	url(r'^index$', views.index, name='h'),
 	url(r'^administrador$', views.view_x, name='x'),
 	url(r'^product/(?P<product_id>[0-9]+)$', views.description_view, name ='product'),
 ]
