@@ -69,7 +69,7 @@ class Bill_payment(models.Model):
 
 
 class Promotion(models.Model):
-	id_promotion = models.IntegerField(default=0)
+	id_promotion = models.IntegerField(primary_key = True)
 	percent_promotion = models.IntegerField(default=0)
 
 	def __str__(self):

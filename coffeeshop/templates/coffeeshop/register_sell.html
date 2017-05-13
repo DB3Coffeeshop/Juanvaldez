@@ -1,0 +1,29 @@
+{% extends 'coffeeshop/admin-base.html' %}
+	{% block pestanasAD %}
+	<li><a class="estoy" href=" {% url 'coffeeshop:register_sell' %}">Registrar venta</a></li>
+	<li><a href=" {% url 'coffeeshop:check_sells' %}">Revisar ventas</a></li>
+	<li><a href=" {% url 'coffeeshop:add_products' %} ">Añadír producto</a></li>
+	<li><a href=" {% url 'coffeeshop:prom_comb' %}">Promociones y combos</a></li>
+	<li><a href=" {% url 'coffeeshop:admin_register' %}">Registrar usuario</a></li>
+	{% endblock pestanasAD%}
+
+	{% block admi-areatrabajoAD %}			
+		<div class="anadriProducto">
+				<button>Añadír</button>
+		</div>
+
+		<div class="infoCliente">
+				
+		</div>
+
+		<div class="tabla">
+				
+		</div>
+				
+		<div class="infoFactura">
+		
+		</div>
+	{% endblock admi-areatrabajoAD %}
+
+	{% block img-admin %}
+	{% endblock img-admin %}

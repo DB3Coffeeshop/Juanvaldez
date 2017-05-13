@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.views.generic import ListView
 #from django.http import HttpResponseNotFound, HttpResponse
 from .forms import Product_form, Product_type_form
-from .models import Product, Product_type
+from .models import Product, Product_type, Promotion
 
 
 def principal_view(request):
@@ -16,7 +16,7 @@ def description_view(request, product_id):
 	return render(request, 'coffeeshop/description.html', {'product': product})
 
 
-def admin_view(request):
+def user_view(request):
 	return render(request, 'coffeeshop/user-base.html')
 
 
@@ -36,43 +36,32 @@ def h4(request):
 	return render(request, 'coffeeshop/h4.html')
 
 
-def view_x(request):
-	return render(request, 'coffeeshop/admin-registrar_venta.html')
-#def index(request):
-#	if request.method == 'POST':
-#		form = dpto_form(request.POST)
-#		form_2 = client_form(request.POST) 
+def view_register_sell(request):
+	return render(request, 'coffeeshop/register_sell.html')
 
-#		if form.is_valid() and form_2.is_valid():
-#			post = form.save(commit = False)
-#			post_2 = form_2.save(commit = False)
-#			post.save()
-#			post_2.save()
-#			html = '<h1>Thanks</h1>'
-#			return HttpResponse(html)
-#	else:
-#		form = dpto_form()
-#		form_2 = client_form()
-#
-#	return render(request, 'coffeeshop/index.html', {'form': form, 'form_2': form_2})
 
-def index(request):
+def view_register_admin(request):
+	return render(request, 'coffeeshop/add_client.html')
+
+
+def view_check_product(request):
+	return render(request, 'coffeeshop/check_sells.html')
+
+
+def promotions_combos_view(request):
+	return render(request, 'coffeeshop/promotions_combs.html')
+
+
+def product_add_view(request):
 	if request.method == 'POST':
-		type_form = Product_type_form(request.POST)
 		product_form = Product_form(request.POST) 
 
-		if type_form.is_valid() and product_form.is_valid():
-			form = type_form.save()
-			print (form.id_product_type)
-			form_2 = product_form.save(commit=False)
-			get_type = Product_type.objects.get(pk=form.id_product_type)
-			print (get_type.id_product_type)
-			form_2.id_provider = get_type
-			form_2.save()
+		if product_form.is_valid():
+			form = product_form.save(commit=False)
+			form.save()
 			html = '<h1>Thanks</h1>'
 			return HttpResponse(html)
 	else:
 		product_form = Product_form()
-		type_form = Product_type_form()
 
-	return render(request, 'coffeeshop/form_example.html', {'form': product_form, 'form_2': type_form})
+	return render(request, 'coffeeshop/add_product.html', {'form': product_form})
