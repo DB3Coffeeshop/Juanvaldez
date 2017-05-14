@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, CreateView
 from django.core.urlresolvers import reverse_lazy
 #from django.http import HttpResponseNotFound, HttpResponse
-from .forms import Product_form, Product_type_form
-from .models import Product, Product_type, Promotion
+from .forms import Product_form, Product_type_form, Provider_form
+from .models import Product, Product_type, Promotion, Provider
 
 
 
@@ -53,23 +53,41 @@ def promotions_combos_view(request):
 	return render(request, 'coffeeshop/promotions_combs.html')
 
 
-def product_add_view(request):
-	if request.method == 'POST':
-		product_form = Product_form(request.POST) 
-
-		if product_form.is_valid():
-			form = product_form.save(commit=False)
-			form.save()
-			html = '<h1>Thanks</h1>'
-			return HttpResponse(html)
-	else:
-		product_form = Product_form()
-
-	return render(request, 'coffeeshop/add_product.html', {'form': product_form})
-
-
 class Product_add(CreateView):
 	model = Product
-	form_class = Product_form
+	form_class = Product_form 
+	second_form_class = Provider_form
+	third_form_class = Product_type_form
 	template_name = 'coffeeshop/add_product.html'
-	success_url = reverse_lazy('coffeeshop:index')
+	success_url = reverse_lazy('coffeeshop:index')	
+
+	
+	def get_context_data(self, **kwargs):
+		context = super(Product_add, self).get_context_data(**kwargs)
+
+		if 'form' not in context:
+			context['form'] = self.form_class(self.request.GET)
+		
+		if 'form2' not in context:
+			context['form2'] = self.second_form_class(self.request.GET)
+
+		if 'form3' not in context:
+			context['form3'] = self.third_form_class(self.request.GET)
+
+		return context
+
+	def post(self, request, *args, **kwargs):
+		self.object = self.get_object
+		form = self.form_class(request.POST)
+		form2 = self.second_form_class(request.POST)
+		form3 = self.third_form_class(request.POST)
+
+		if form.is_valid() and form2.is_valid() and form3.is_valid():
+			product = form.save(commit=False)
+			product.id_provider = form2.save()
+			product.id_product_type = form3.save()
+			product.save()
+			return HttpResponseRedirect(self.get_success_url())
+		else:
+			return self.render_to_response(self.get_context_data(form=form, form2=form2, form3=form3))  
+

@@ -93,7 +93,7 @@ class Product(models.Model):
 	price = models.DecimalField(max_digits = 8, decimal_places = 3)
 	stock = models.IntegerField(default=0)
 	id_provider = models.ForeignKey(Provider, on_delete = models.CASCADE)
-	id_product_type = models.ForeignKey(Product_type, on_delete = models.CASCADE)
+	id_product_type = models.ForeignKey(Product_type, null = True, blank = True)
 	img_product = models.CharField(max_length = 30, unique = True, null = True)  #Puts here the img rute on our proyect
 	id_promotion = models.ForeignKey(Promotion, on_delete = models.CASCADE, null = True)
 

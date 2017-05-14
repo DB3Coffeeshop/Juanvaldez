@@ -9,11 +9,14 @@
 
 	{% block admi-areatrabajoAD %}			
 		<form action="" method="POST"> {% csrf_token %}
-			{% for field in form %} 
-			{{ field.errors }} 
-			{{ field.label_tag }} {{ field }} <br>
-			{% endfor %}
-			<input type = "submit" name="save">
+			<div class="some_class">
+				{{ form.as_p }} <p> La clase del formulario producto es form_product </p>
+				{{ form2.as_p }} <p> la de esta es form_provider </p>
+				{{ form3.as_p }} <p> la de esta es form_type </p>		
+				<div class = "button_form">
+					<input type = "submit" name="save">
+				</div>
+			</div>
 	{% endblock admi-areatrabajoAD %}
 
 	{% block img-admin%}
