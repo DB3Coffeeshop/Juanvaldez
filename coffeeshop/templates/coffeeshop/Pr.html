@@ -122,8 +122,8 @@ function loginB() {
 
   <div class="content">
  <h1> Productos Juan Valdez </h1>
-{% if list_products %}
-  {% for product in list_products %}
+{% if object_list %}
+  {% for product in object_list %}
 	<div id="divL"><span>{{product.name_product}}</span> 
          
          <h4><form>

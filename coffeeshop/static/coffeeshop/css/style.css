@@ -592,3 +592,7 @@ input[type = "radio"]:checked ~ label{
   margin-bottom: 70px;
   cursor: pointer;
 }
+
+#name {
+	color: blue;
+}

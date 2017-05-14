@@ -18,7 +18,7 @@ function validacion2(){
   var b=document.getElementById('tb2').value;
   if (a=='travel' && b=='engine') {
 
-    parent.location="Pr2b.html";
+    parent.location="add_product.html";
     return false;
   } 
   else{

@@ -1,19 +1,20 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
+from django.core.urlresolvers import reverse_lazy
 #from django.http import HttpResponseNotFound, HttpResponse
 from .forms import Product_form, Product_type_form
 from .models import Product, Product_type, Promotion
 
 
-def principal_view(request):
-	list_products = Product.objects.all()
-	context = {'list_products': list_products}
-	return render(request, 'coffeeshop/Pr.html', context)
+
+class Product_list(ListView):
+	model = Product
+	template_name = 'coffeeshop/Pr.html'
 
 
 def description_view(request, product_id):
 	product = get_object_or_404(Product, pk=product_id)
-	return render(request, 'coffeeshop/description.html', {'product': product})
+	return render(request, 'coffeeshop/product_description.html', {'product': product})
 
 
 def user_view(request):
@@ -65,3 +66,10 @@ def product_add_view(request):
 		product_form = Product_form()
 
 	return render(request, 'coffeeshop/add_product.html', {'form': product_form})
+
+
+class Product_add(CreateView):
+	model = Product
+	form_class = Product_form
+	template_name = 'coffeeshop/add_product.html'
+	success_url = reverse_lazy('coffeeshop:index')

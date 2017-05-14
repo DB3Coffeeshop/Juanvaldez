@@ -1,6 +1,14 @@
-{% extends 'coffeeshop/base.html' %}
+{% load static %}
 
-{% block content %}
-<p> Holisss </p>
-<p> jejejej </p>
-{% endblock content %}
+<html>
+	<head><title></title>	
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="{% static 'coffeeshop/css/x.css' %}">
+	
+	</head>
+	<body>
+		<form method = "POST">
+			{{ form.as_table }}
+		</form>
+	</body>
+</html>
