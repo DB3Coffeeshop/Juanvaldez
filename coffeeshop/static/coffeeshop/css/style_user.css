@@ -54,19 +54,19 @@ header nav a:hover{
 
 /** PARTE DE ABAJO*/
 #f1 {
-  background: #252932;
-  height: 80px;
-  width: 100%;
-  padding-top: 27px;
+	background: #252932;
+  	height: 80px;
+  	width: 100%;
+  	padding-top: 27px;
 }
 
 #f3 {
-  width: 100%;
-  height: 90px;
-  background: #354C81;
-  color: #FFF;
-  font-size: 13px;
-  padding-top: 35px;
+	width: 100%;
+  	height: 90px;
+  	background: #354C81;
+  	color: #FFF;
+  	font-size: 13px;
+  	padding-top: 35px;
 }
 
 /** Css admin**/
@@ -124,7 +124,6 @@ button:hover{
 	left: 17%;
 	top: 150px;
 	width: 83%;
-	height: 81%;
 	background-color: rgb(194,194,194);
 }
 
@@ -147,5 +146,37 @@ button:hover{
 	bottom: 0;
 }
 
-.form_class {
+.pa{
+	top: 5px;
+	position: relative;
+	left: 20px;
+	text-align: left;
+	font-size: 30px;
+	bottom: 3px;
+}
+
+.Producto{
+	position: relative;
+	left: 80px;
+	top: 5px;
+	font-size: 25px;
+}
+
+.Tipo{
+	position: relative;
+	left: 80px;
+	top: 5px;
+	font-size: 25px;
+}
+
+.Proveedor{
+	position: relative;
+	left: 80px;
+	top: 5px;
+	font-size: 25px;
+}
+
+hr{
+	position: relative;
+	top: 5px;
 }

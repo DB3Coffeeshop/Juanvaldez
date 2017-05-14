@@ -3,19 +3,27 @@
 		<li><a href=" {% url 'coffeeshop:register_sell' %}">Registrar venta</a></li>
 		<li><a href=" {% url 'coffeeshop:check_sells' %}">Revisar ventas</a></li>
 		<li><a class="estoy" href=" {% url 'coffeeshop:add_products' %} ">Añadír producto</a></li>
-		<li><a href=" {% url 'coffeeshop:prom_comb' %}">Promociones y combos</a></li>
+		<li><a href=" {% url 'coffeeshop:product' %}">Productos</li>
+		<li><a href=" {% url 'coffeeshop:combo' %}">Combo</a></li>
 		<li><a href=" {% url 'coffeeshop:admin_register' %}">Registrar usuario</a></li>
 	{% endblock pestanasAD %}
 
 	{% block admi-areatrabajoAD %}			
 		<form action="" method="POST"> {% csrf_token %}
-			<div class="some_class">
-				{{ form.as_p }} <p> La clase del formulario producto es form_product </p>
-				{{ form2.as_p }} <p> la de esta es form_provider </p>
-				{{ form3.as_p }} <p> la de esta es form_type </p>		
-				<div class = "button_form">
-					<input type = "submit" name="save">
-				</div>
+
+			<p class="pa">Producto</p> 
+			<div class="Producto">{{ form.as_p }}</div>
+			<hr/>
+
+			<p class="pa">Tipo</p>
+			<div class="Tipo">{{ form3.as_p }}</div>
+			<hr/>
+
+			<p class="pa">Proveedor</p>
+			<div class="Proveedor"> {{ form2.as_p }} </div>
+			
+			<div class = "button_form">
+				<input type = "submit" name="save">
 			</div>
 	{% endblock admi-areatrabajoAD %}
 
