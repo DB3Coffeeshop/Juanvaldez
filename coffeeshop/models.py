@@ -35,6 +35,7 @@ class Client(models.Model):
 	name_client = models.CharField(max_length=20)
 	id_client = models.IntegerField(primary_key = True)
 	id_city = models.ForeignKey(City, on_delete = models.CASCADE)
+	points = models.IntegerField(default=0)
 
 
 	def __str__(self):
