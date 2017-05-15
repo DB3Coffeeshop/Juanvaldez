@@ -3,8 +3,8 @@
 		<li><a href=" {% url 'coffeeshop:register_sell' %}">Registrar venta</a></li>
 		<li><a href=" {% url 'coffeeshop:check_sells' %}">Revisar ventas</a></li>
 		<li><a class="estoy" href=" {% url 'coffeeshop:add_products' %} ">Añadír producto</a></li>
-		<li><a href=" {% url 'coffeeshop:product' %}">Productos</li>
-		<li><a href=" {% url 'coffeeshop:combo' %}">Combo</a></li>
+		<li><a href=" {% url 'coffeeshop:product' %}">Productos</a></li>
+		<li><a hhref="{% url 'coffeeshop:combo' %}">Combo</a></li>
 		<li><a href=" {% url 'coffeeshop:admin_register' %}">Registrar usuario</a></li>
 	{% endblock pestanasAD %}
 
@@ -16,15 +16,16 @@
 			<hr/>
 
 			<p class="pa">Tipo</p>
-			<div class="Tipo">{{ form3.as_p }}</div>
+			<div class="Tipo"> {{ form3.as_p }}</div>
 			<hr/>
 
 			<p class="pa">Proveedor</p>
 			<div class="Proveedor"> {{ form2.as_p }} </div>
-			
+
 			<div class = "button_form">
 				<input type = "submit" name="save">
 			</div>
+		</form>
 	{% endblock admi-areatrabajoAD %}
 
 	{% block img-admin%}
