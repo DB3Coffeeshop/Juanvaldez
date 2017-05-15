@@ -53,8 +53,10 @@ def combos_view(request):
 	return render(request, 'coffeeshop/combos.html')
 
 
-def product_table(request):
-	return render(request, 'coffeeshop/product_table.html')
+class product_table(ListView):
+	model = Product
+	template_name = 'coffeeshop/admin_products.html'
+
 
 
 class Product_add(CreateView):
@@ -63,7 +65,7 @@ class Product_add(CreateView):
 	second_form_class = Provider_form
 	third_form_class = Product_type_form
 	template_name = 'coffeeshop/add_product.html'
-	success_url = reverse_lazy('coffeeshop:index')	
+	success_url = reverse_lazy('coffeeshop:product_table')
 
 	
 	def get_context_data(self, **kwargs):

@@ -3,12 +3,44 @@
 		<li><a href=" {% url 'coffeeshop:register_sell' %}">Registrar venta</a></li>
 		<li><a href=" {% url 'coffeeshop:check_sells' %}">Revisar ventas</a></li>
 		<li><a href=" {% url 'coffeeshop:add_products' %} ">Añadír producto</a></li>
-		<li><a href=" {% url 'coffeeshop:product' %}">Productos</a></li>
-		<li><a class="estoy" href=" {% url 'coffeeshop:combo' %}">Combo</a></li>
+		<li><a href=" {% url 'coffeeshop:product_table' %}">Productos</a></li>
+		<li><a class="estoy" href=" {% url 'coffeeshop:combos' %}">Combo</a></li>
 		<li><a href=" {% url 'coffeeshop:admin_register' %}">Registrar usuario</a></li>
 	{% endblock pestanasAD %}
 
 	{% block admi-areatrabajoAD %}			
+		<table class = "table-products">
+			<thead>
+				<tr>
+					<td> <strong>ID producto </strong></td>
+					<td> <strong>Nombre </strong></td>
+					<td> <strong>Precio </strong></td>
+					<td> <strong>Proveedor </strong></td>
+					<td> <strong>Promocion% </strong></td>
+					<td> <strong>Tipo </strong></td>
+					<td> <strong>Cant producto </strong><td>
+					<td> <strong>Acciones </strong></td>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+				{% if object_list %}
+					{% for product in object_list %}
+						<td> {{ product.id_product }} </td>
+						<td> {{ product.name_product }} </td>
+						<td> {{ product.price }} </td>
+						<td> {{ product.id_provider }} </td>
+						<td> {{ product.id_promotion }} </td>
+						<td> {{ product.id_product_type }} </td>
+						<td> {{ product.stock }} </td>
+					{% endfor %}
+				{% else %}
+					<h1> No products here </h1>
+				{% endif %}
+				</tr>
+			</tbody>
+		</table>
 	{% endblock admi-areatrabajoAD %}
 
 	{% block img-admin %}

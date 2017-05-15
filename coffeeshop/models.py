@@ -84,7 +84,7 @@ class Product_type(models.Model):
 	id_promotion = models.ForeignKey(Promotion, on_delete = models.CASCADE)
 	
 	def __str__(self):
-		return str(self.id_product_type)
+		return self.product_type
 
 
 
