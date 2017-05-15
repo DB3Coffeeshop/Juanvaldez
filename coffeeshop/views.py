@@ -97,3 +97,6 @@ class Product_add(CreateView):
 		else:
 			return self.render_to_response(self.get_context_data(form=form, form2=form2, form3=form3))  
 
+
+class sell_product(CreateView):
+	pass

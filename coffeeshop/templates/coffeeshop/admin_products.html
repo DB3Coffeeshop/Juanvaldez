@@ -24,9 +24,6 @@
 			</thead>
 
 			<tbody>
-				
-				{% if object_list %}
-					{% for product in object_list %}
 				{% if object_list %}
 					{% for product in object_list %}
 
@@ -40,8 +37,8 @@
 						<td> {{ product.stock }} </td>
 						<td>
 							<div class = "button_table">
-								<input type="submit" name="Edit">
-								<input type="submit" name="Delete">
+								<input type="submit" value="Edit">
+								<input type="submit" value="Delete">
 							</div>
 						</td>
 					</tr>
