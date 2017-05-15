@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, HttpResponse, 
 from django.views.generic import ListView, CreateView
 from django.core.urlresolvers import reverse_lazy
 #from django.http import HttpResponseNotFound, HttpResponse
-from .forms import Product_form, Product_type_form, Provider_form, Sale_form, Bill_form, Description_bill_form
+from .forms import Product_form, Product_type_form, Provider_form, Sale_form, Bill_form, Description_bill_form, Client_form
 from .models import Product, Product_type, Promotion, Provider, Sale, Description_bill_payment, Bill_payment, Client
 
 
@@ -48,6 +48,14 @@ def combos_view(request):
 class Client_table(ListView):
 	model = Client
 	template_name = 'coffeeshop/add_client.html'
+
+
+
+class Client_register(CreateView):
+	model = Client
+	form_class = Client_form
+	template_name = 'coffeeshop/client.html'
+	succees_url = reverse_lazy('coffeeshop:admin_register')
 
 
 

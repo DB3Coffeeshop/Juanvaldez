@@ -128,3 +128,21 @@ class Description_bill_form(forms.ModelForm):
 			'pay_mode': 'Modo pago',
 			'employee_name': 'Nombre empleado',
 		}
+
+class Client_form(forms.ModelForm):
+
+	class Meta:
+		model = Client
+		fields = ('name_client', 'id_client', 'id_city')
+
+		widgets = {
+			'name_client': forms.TextInput(attrs={'class': 'form_client'}),
+			'id_client': forms.NumberInput(attrs={'class': 'form_client'}),
+			'id_city': forms.Select(attrs={'class': 'form_client'}),
+		}
+
+		labels = {
+			'name_client': 'Nombre',
+			'id_client': 'CC',
+			'id_city': 'Ciudad',
+		}
