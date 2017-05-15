@@ -49,8 +49,12 @@ def view_check_product(request):
 	return render(request, 'coffeeshop/check_sells.html')
 
 
-def promotions_combos_view(request):
-	return render(request, 'coffeeshop/promotions_combs.html')
+def combos_view(request):
+	return render(request, 'coffeeshop/combos.html')
+
+
+def product_table(request):
+	return render(request, 'coffeeshop/product_table.html')
 
 
 class Product_add(CreateView):
