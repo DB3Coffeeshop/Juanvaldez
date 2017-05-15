@@ -27,6 +27,9 @@
 				
 				{% if object_list %}
 					{% for product in object_list %}
+				{% if object_list %}
+					{% for product in object_list %}
+
 					<tr>
 						<td> {{ product.id_product }} </td>
 						<td> {{ product.name_product }} </td>
@@ -47,7 +50,6 @@
 				{% else %}
 					<h1> --No products here-- </h1>
 				{% endif %}
-				
 			</tbody>
 		</table>
 	{% endblock admi-areatrabajoAD %}
