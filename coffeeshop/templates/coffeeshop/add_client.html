@@ -8,7 +8,42 @@
 		<li><a class="estoy" href=" {% url 'coffeeshop:admin_register' %}">Registrar usuario</a></li>
 	{% endblock pestanasAD %}
 
-	{% block admi-areatrabajoAD %}			
+	{% block admi-areatrabajoAD %}
+		<table class = "table">
+			<thead class="tableH">
+				<tr>
+					<td>Nombre</td>
+					<td>Identificación</td>
+					<td>Ciudad</td>
+					<td>Puntos</td>
+					<td>Acciones</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				
+				{% if object_list %}
+					{% for client in object_list %}
+					<tr>
+						<td> {{ client.name_client }} </td>
+						<td> {{ client.id_client }} </td>
+						<td> {{ client.id_city }} </td>
+						<td> {{ client.points }} </td>
+						<td>
+							<div class = "button_table">
+								<input type="submit" name="Edit">
+								<input type="submit" name="Delete">
+							</div>
+						</td>
+					</tr>
+					{% endfor %}
+
+				{% else %}
+					<p class="no_products"> --No clients here-- </p>
+				{% endif %}
+				
+			</tbody>
+		</table>	
 	{% endblock admi-areatrabajoAD %}
 
 	{% block img-admin %}
