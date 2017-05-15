@@ -171,7 +171,6 @@ header nav a:hover{
 }
 
 .errorlist{
-	position: absolute;
 	color: red;
 	font-family: serif;
 	font-size: 15px;
@@ -185,7 +184,7 @@ hr{
 }
 
 .button_form{
-	position: absolute;
+	position: relative;
 	font-size: 27px;
 	background-color: #9b0f26;
 	color: #9a9a9a;
@@ -194,8 +193,8 @@ hr{
 	height: 40px;
 	border: 5px;
 	border-radius: 2px;
-	right: 3px;
-	bottom: 5px;
+	left: 1190px;
+	bottom: 3px;
 }
 
 .button_form:hover{
@@ -214,8 +213,8 @@ input{
 
 select{
 	margin-top: 5px;
-	height: 20px;
-	width: 80px;
+	height: 35px;
+	width: 150px;
 	font-size: 23px;
 }
 
@@ -246,4 +245,33 @@ select{
 	font-size: 25px;
 	width: 300px;
 	left: 30px;
+}
+
+.form1{
+	position: relative;
+	text-align: left;
+	left: 80px;
+	top: 5px;
+	font-size: 25px;
+	width: 26%;
+	height: 50%;
+}
+
+.form2{
+	position: relative;
+	text-align: left;
+	left: 80px;
+	top: 15px;
+	font-size: 25px;
+	width: 26%;
+	height: 50%;
+}
+
+.form3{
+	position: relative;
+	text-align: left;
+	left: 80px;
+	top: 5px;
+	font-size: 25px;
+	width: 80%;
 }
