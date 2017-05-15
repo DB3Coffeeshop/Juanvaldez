@@ -101,7 +101,7 @@ class Sell_product(CreateView):
 	form_class = Sale_form
 	second_form_class = Bill_form
 	third_form_class = Description_bill_form
-	template_name = 'coffeeshop/form_example.html'
+	template_name = 'coffeeshop/register_sell.html'
 	success_url = reverse_lazy('coffeeshop:index')
 
 
