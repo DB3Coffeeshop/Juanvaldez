@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from datetime import datetime
 
 class Departament(models.Model):
 	id_dpto = models.IntegerField(primary_key = True)
@@ -60,8 +61,8 @@ class Description_bill_payment(models.Model):
 class Bill_payment(models.Model):
 	id_bill_payment = models.IntegerField(primary_key = True)
 	id_client = models.ForeignKey(Client, on_delete = models.CASCADE)
-	id_payment = models.ForeignKey(Description_bill_payment, on_delete = models.CASCADE)
-	payment_date = models.DateTimeField()
+	id_payment = models.ForeignKey(Description_bill_payment, on_delete = models.CASCADE, null = True)
+	payment_date = models.DateTimeField(default=timezone.now, blank = True)
 	
 
 	def __str__(self):

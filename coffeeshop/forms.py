@@ -1,6 +1,6 @@
-from django.forms import ModelForm, NumberInput, TextInput, Select
+from django.forms import ModelForm, NumberInput, TextInput, Select, DateTimeInput, CheckboxInput
 from django import forms
-from coffeeshop.models import City, Departament, Client, Product, Product_type, Provider
+from coffeeshop.models import City, Departament, Client, Product, Product_type, Provider, Sale, Bill_payment, Description_bill_payment
 
 class Product_form(forms.ModelForm):
 
@@ -69,4 +69,62 @@ class Provider_form(forms.ModelForm):
 			'provider_name': 'Nombre proveedor',
 			'tel_provider': 'Telefono',
 			'id_city': 'Ciudad',
+		}
+
+class Sale_form(forms.ModelForm):
+	
+	class Meta:
+		model = Sale
+		fields = ('id_sale', 'quantity_sold', 'id_product')
+
+		widgets = {
+			'id_sale': forms.NumberInput(attrs={'class': 'form_sale'}),
+			'quantity_sold': forms.NumberInput(attrs={'class': 'form_sale'}),
+			'id_product': forms.Select(attrs={'class': 'form_sale'}),
+			#'sale_value': forms.NumberInput(attrs={'class': 'form_sale'}),
+
+		}
+
+		labels = {
+			'id_sale': 'ID venta',
+			'quantity_sold': 'Cant vendida',
+			'id_product': 'Producto',
+			'sale_value': 'Val venta',
+	}
+
+class Bill_form(forms.ModelForm):
+
+	class Meta:
+		model = Bill_payment
+		fields = ('id_bill_payment', 'id_client')
+
+		widgets = {
+			'id_bill_payment': forms.NumberInput(attrs={'class': 'form_bill'}),
+			'id_client': forms.Select(attrs={'class': 'form_bill'}),
+			#'payment_date': forms.DateTimeInput(attrs={'class': 'form_bill'}),
+		}
+
+		labels = {
+			'id_bill_payment': 'ID factura',
+			'id_client': 'Cliente',
+			#'payment_date': 'Fecha',
+		}
+
+
+class Description_bill_form(forms.ModelForm):
+
+	class Meta:
+		model = Description_bill_payment
+		fields = ('id_payment', 'pay_mode', 'employee_name')
+
+		widgets = {
+			'id_payment': forms.NumberInput(attrs={'class': 'form_description'}),
+			'pay_mode': forms.Select(attrs={'class': 'form_description'}),
+			'employee_name': forms.TextInput(attrs={'class': 'form_description'}),
+		}
+
+		labels = {
+			'id_payment': 'ID factura',
+			'pay_mode': 'Modo pago',
+			'employee_name': 'Nombre empleado',
 		}

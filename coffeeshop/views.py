@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect, HttpResponse, 
 from django.views.generic import ListView, CreateView
 from django.core.urlresolvers import reverse_lazy
 #from django.http import HttpResponseNotFound, HttpResponse
-from .forms import Product_form, Product_type_form, Provider_form
-from .models import Product, Product_type, Promotion, Provider
+from .forms import Product_form, Product_type_form, Provider_form, Sale_form, Bill_form, Description_bill_form
+from .models import Product, Product_type, Promotion, Provider, Sale, Description_bill_payment, Bill_payment, Client
 
 
 
@@ -37,20 +37,18 @@ def h4(request):
 	return render(request, 'coffeeshop/h4.html')
 
 
-def view_register_sell(request):
-	return render(request, 'coffeeshop/register_sell.html')
-
-
-def view_register_admin(request):
-	return render(request, 'coffeeshop/add_client.html')
-
-
 def view_check_product(request):
 	return render(request, 'coffeeshop/check_sells.html')
 
 
 def combos_view(request):
 	return render(request, 'coffeeshop/combos.html')
+
+
+class Client_table(ListView):
+	model = Client
+	template_name = 'coffeeshop/add_client.html'
+
 
 
 class product_table(ListView):
@@ -98,5 +96,52 @@ class Product_add(CreateView):
 			return self.render_to_response(self.get_context_data(form=form, form2=form2, form3=form3))  
 
 
-class sell_product(CreateView):
-	pass
+class Sell_product(CreateView):
+	model = Sale
+	form_class = Sale_form
+	second_form_class = Bill_form
+	third_form_class = Description_bill_form
+	template_name = 'coffeeshop/form_example.html'
+	success_url = reverse_lazy('coffeeshop:index')
+
+
+	def get_context_data(self, **kwargs):
+		context = super(Sell_product, self).get_context_data(**kwargs)
+
+		if 'form' not in context:
+			context['form'] = self.form_class(self.request.GET)
+		
+		if 'form2' not in context:
+			context['form2'] = self.second_form_class(self.request.GET)
+
+		if 'form3' not in context:
+			context['form3'] = self.third_form_class(self.request.GET)
+
+		return context
+
+
+	def post(self, request, *args, **kwargs):
+		self.object = self.get_object
+		form = self.form_class(request.POST)
+		form2 = self.second_form_class(request.POST)
+		form3 = self.third_form_class(request.POST)
+
+		if form.is_valid() and form2.is_valid() and form3.is_valid():
+			sale = form.save(commit=False)
+			bill = form2.save(commit=False)
+			product_id = sale.id_product.id_product
+			product = Product.objects.get(pk=product_id)
+			product.stock -= sale.quantity_sold
+			value = product.price * sale.quantity_sold
+			product.save()
+			id_client = bill.id_client.id_client
+			client = Client.objects.get(pk=id_client)
+			client.points += int(value)
+			client.save()
+			form2.id_payment = form3.save()
+			sale.id_bill_payment = form2.save()
+			sale.sale_value = value
+			sale.save()
+			return HttpResponseRedirect(self.get_success_url())
+		else:
+			return self.render_to_response(self.get_context_data(form=form,form2=form2,form3=form3))
