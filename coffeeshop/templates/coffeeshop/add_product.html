@@ -4,7 +4,7 @@
 		<li><a href=" {% url 'coffeeshop:check_sells' %}">Revisar ventas</a></li>
 		<li><a class="estoy" href=" {% url 'coffeeshop:add_products' %} ">Añadír producto</a></li>
 		<li><a href=" {% url 'coffeeshop:product_table' %}">Productos</a></li>
-		<li><a href="{% url 'coffeeshop:combos' %}">Combo</a></li>
+		<li><a href=" {% url 'coffeeshop:combos' %}">Combo</a></li>
 		<li><a href=" {% url 'coffeeshop:admin_register' %}">Registrar usuario</a></li>
 	{% endblock pestanasAD %}
 
@@ -22,8 +22,8 @@
 			<p class="pa">Proveedor</p>
 			<div class="Proveedor"> {{ form2.as_p }} </div>
 			
-			<div class = "button_form">
-				<input type = "submit" name="save">
+			<div>
+				<input  class = "button_form" type = "submit" value="SAVE">
 			</div>
 		</form>
 	{% endblock admi-areatrabajoAD %}
