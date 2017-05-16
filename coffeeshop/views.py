@@ -211,7 +211,7 @@ class Sell_value(ListView):
 
 class Client_more_points(ListView):
 	model = Client
-	template_name = 'coffeeshop/h2.html'
+	template_name = 'coffeeshop/best_clients.html'
 
 	def get_queryset(self):
 		return Client.objects.order_by('-points')
@@ -219,7 +219,7 @@ class Client_more_points(ListView):
 
 class Client_minus_points(ListView):
 	model = Client
-	template_name = 'coffeeshop/h2.html'
+	template_name = 'coffeeshop/minus_clients.html'
 
 	def get_queryset(self):
 		return Client.objects.order_by('points')
