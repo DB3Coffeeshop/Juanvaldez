@@ -7,6 +7,7 @@ class Product_form(forms.ModelForm):
 	class Meta:
 		model = Product
 		fields = ('id_product', 'name_product', 'price', 'stock', 'id_promotion')	
+		exclude = ['id_product_type', 'id_provider']
 		widgets = {
 			'id_product': forms.NumberInput(attrs={'class': 'form_product'}),
 			'name_product': forms.TextInput(attrs={'class': 'form_product'}),

@@ -71,6 +71,25 @@ class Product_edit(UpdateView):
 	template_name = 'coffeeshop/add_product.html'
 	success_url = reverse_lazy('coffeeshop:product_table')
 
+	def get_context_data(self, **kwargs):
+		context = super(Product_edit, self).get_context_data(**kwargs)
+		pk = self.kwargs.get('pk', 0)
+		product = self.model.objects.get(pk=pk)
+		provider = self.second_model.objects.get(pk=product.id_provider)
+		type_product = self.third_model.objects.get(pk=product.id_product_type)
+
+		if 'form' not in context:
+			context['form'] = self.form_class()
+		if 'form2' not in context:
+			context['form2'] = self.second_form_class(instance=provider)
+		if 'form3' not in context:
+			context['form3'] = self.third_form_class(instance=type_product)
+
+		context['id'] = pk
+
+		return context
+		
+
 
 
 class Product_add(CreateView):
