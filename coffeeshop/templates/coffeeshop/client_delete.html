@@ -1,10 +1,11 @@
-{% extends 'coffeeshop/base.html' %}
+{% extends 'coffeeshop/add_client.html' %}
 
-{% block admi-areatrabajo %}
-
-<form method="POST"> {% csrf_token %}
-	<h3> Esta seguro que desea eliminar el registro del cliente {{ object.name_client }} </h3>
-	<button type="submit"> Si, eliminar </button>
-	<a href={% url 'coffeeshop:admin_register' %}> Cancelar </a>
-</form>
-{% endblock admi-areatrabajo %}
+{% block admi-areatrabajoAD %}
+<div class="Erase">
+	<form method="POST"> {% csrf_token %}
+		<h3> Esta seguro que desea eliminar el registro del cliente {{ object.name_client }} ?</h3>
+		<button type="submit"> Si, eliminar </button>
+		<a class="Cancelar" href="{% url 'coffeeshop:admin_register' %}"> Cancelar </a>
+		</form>
+</div>
+{% endblock admi-areatrabajoAD %}
