@@ -67,7 +67,7 @@ class product_table(ListView):
 class Product_edit(UpdateView):
 	model = Product
 	second_model = Provider_form
-	third_model = Product_type_form
+	#third_model = Product_type_form
 	template_name = 'coffeeshop/add_product.html'
 	success_url = reverse_lazy('coffeeshop:product_table')
 
@@ -76,14 +76,14 @@ class Product_edit(UpdateView):
 		pk = self.kwargs.get('pk', 0)
 		product = self.model.objects.get(pk=pk)
 		provider = self.second_model.objects.get(pk=product.id_provider)
-		type_product = self.third_model.objects.get(pk=product.id_product_type)
+		#type_product = self.third_model.objects.get(pk=product.id_product_type)
 
 		if 'form' not in context:
 			context['form'] = self.form_class()
 		if 'form2' not in context:
 			context['form2'] = self.second_form_class(instance=provider)
-		if 'form3' not in context:
-			context['form3'] = self.third_form_class(instance=type_product)
+		#if 'form3' not in context:
+		#	context['form3'] = self.third_form_class(instance=type_product)
 
 		context['id'] = pk
 
@@ -199,3 +199,27 @@ class Client_edit(UpdateView):
 	form_class = Client_form
 	template_name = 'coffeeshop/client.html'
 	success_url = reverse_lazy('coffeeshop:admin_register')
+
+
+class Sell_value(ListView):
+	model = Sale
+	template_name = 'coffeeshop/check_sells.html'
+	
+	def get_queryset(self):
+		return Sale.objects.order_by('-sale_value')
+
+
+class Client_more_points(ListView):
+	model = Client
+	template_name = 'coffeeshop/h2.html'
+
+	def get_queryset(self):
+		return Client.objects.order_by('-points')
+
+
+class Client_minus_points(ListView):
+	model = Client
+	template_name = 'coffeeshop/h2.html'
+
+	def get_queryset(self):
+		return Client.objects.order_by('points')

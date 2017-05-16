@@ -9,13 +9,6 @@
 	{% endblock pestanasAD%}
 
 	{% block admi-areatrabajoAD %}	
-
-		<div class = "button_table">
-			<input class="btnEdit" type="submit" value="Día">
-			<input class="btnEdit" type="submit" value="Semana">
-			<input class="btnEdit" type="submit" value="Mes">
-		</div>
-
 		<table class = "table">
 
 			<thead class="tableH">
@@ -31,14 +24,14 @@
 
 			<tbody>
 				{% if object_list %}
-					{% for product in object_list %}
+					{% for sale in object_list %}
 					<tr>
-						<td> {{ product.id_product }} </td>
-						<td> {{ product.name_product }} </td>
-						<td> {{ product.price }} </td>
-						<td> {{ product.id_provider }} </td>
-						<td> {{ product.id_promotion }} </td>
-						<td> {{ product.id_product_type }} </td>
+						<td> {{ sale.id_product }} </td>
+						<td> {{ sale.id_bill_payment.id_bill_payment }} </td>
+						<td> {{ sale.quantity_sold }} </td>
+						<td> {{ sale.id_sale }} </td>
+						<td> {{ sale.sale_value }} </td>
+						<td> {{ sale.id_bill_payment.payment_date }} </td>
 					</tr>
 					{% endfor %}
 				{% else %}
