@@ -1,25 +1,22 @@
 {% extends 'coffeeshop/base.html' %}
 {% load static %}
+
+{% block letter %} 
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
+	<link rel="stylesheet"  href="{% static 'coffeeshop/css/styles2.css' %}">
+{% endblock letter %}
+
+
 {% block pestana-usuario %}
 	<nav>
 		<a href="{% url 'coffeeshop:index' %}">Inicio</a>
-		<a href="{% url 'coffeeshop:h2' %}">Punto Jv</a>
+		<a href="{% url 'coffeeshop:h2' %}">Puntos Jv</a>
 		<a href="{% url 'coffeeshop:h3' %}">Promociones</a>
 		<a href="{% url 'coffeeshop:h4' %}">Combo</a>
 	</nav>
 {% endblock %}
 
 {% block admi-areatrabajo %}
-		
-	<!DOCTYPE html>
-<html>
-<head>
-	<title>Efecto</title>
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-	<link rel="stylesheet"  href="{% static 'coffeeshop/css/styles2.css' %}">
-	<meta charset="utf-8">
-</head>
-<body>
 	<div id="body">
 	<div id="info"> 
 		 <p id="headline">Que es?</p>
@@ -32,9 +29,4 @@ El canal HoReCa reúne los hoteles, restaurantes y cafeterías en quienes Procaf
 		</div>
 	</div>
 	<br>
-
-
-</body>
-</html>
-
-		{% endblock %}
+{% endblock %}

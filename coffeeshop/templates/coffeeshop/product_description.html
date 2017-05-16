@@ -1,8 +1,26 @@
 {% extends 'coffeeshop/base.html' %}
-{% block pestanas %}
-<h1> {{ product.name_product }} </h1>
-<p> {{ product.stock }} </p>
-<p> {{ product.id_product_type.product_description }} </p>
-<p> {{ product.id_product_type.product_type }} </p>
-<p> {{ product.price }} </p>
-{% endblock pestanas %}
+{% load static %}
+
+{% block title %} Descripción {% endblock title %}
+
+{% block letter %}
+<link rel="stylesheet" type="text/css" href="{% static 'coffeeshop/css/style_user.css' %}" />
+{% endblock letter %}
+
+{% block pestana-usuario %}
+	<nav>
+		<a href="{% url 'coffeeshop:index' %}">Inicio</a>
+	</nav>
+{% endblock %}
+
+{% block  admi-areatrabajo  %}
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+	<div class="product_description">
+		<h1 class="desc_name"> {{ product.name_product }} </h1>
+		<p class="titleDsc"><strong><i>Descripción: </i></strong></p>
+		<p class="titleDsc"> {{ product.id_product_type.product_description }} </p>
+		<p class="titleDsc"><strong><i>Cantidad en la tienda: </i></strong> {{ product.stock }} </p>
+		<p class="titleDsc"><strong><i>Tipo:</i></strong> {{ product.id_product_type.product_type }} </p>
+		<p class="titleDsc"><strong><i> Precio ind: </i></strong> {{ product.price }} </p>
+	</div>
+{% endblock admi-areatrabajo%}
