@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse, HttpResponseRedirect
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 #from django.http import HttpResponseNotFound, HttpResponse
 from .forms import Product_form, Product_type_form, Provider_form, Sale_form, Bill_form, Description_bill_form, Client_form
@@ -146,10 +146,22 @@ class Sell_product(CreateView):
 			client = Client.objects.get(pk=id_client)
 			client.points += int(value)
 			client.save()
-			form2.id_payment = form3.save()
+			bill.id_payment = form3.save()
 			sale.id_bill_payment = form2.save()
 			sale.sale_value = value
 			sale.save()
 			return HttpResponseRedirect(self.get_success_url())
 		else:
 			return self.render_to_response(self.get_context_data(form=form,form2=form2,form3=form3))
+
+
+class Client_delete(DeleteView):
+	model = Client
+	template_name = 'coffeeshop/client_delete.html'
+	success_url = reverse_lazy('coffeeshop:admin_register')
+
+
+class Product_delete(DeleteView):
+	model = Product
+	template_name = 'coffeeshop/product_delete.html'
+	success_url = reverse_lazy('coffeeshop:product_table')

@@ -32,7 +32,9 @@
 						<td>
 							<div class = "button_table">
 								<input class="btnEdit" type="submit" value="Edit">
+								<form action="{% url 'coffeeshop:delete_client' client.id_client %}">
 								<input class="btnDelete" type="submit" value="Delete">
+								</form>
 								<input class="btnAdd" type="submit" value="+">
 							</div>
 						</td>

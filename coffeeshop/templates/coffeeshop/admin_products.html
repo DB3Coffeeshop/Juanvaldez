@@ -38,8 +38,12 @@
 						<td>
 							<div class = "button_table">
 								<input class="btnEdit" type="submit" value="Edit">
+								<form action="{% url 'coffeeshop:product_delete' product.id_product%}">
 								<input class="btnDelete" type="submit" value="Delete">
+								</form>
+								<form action="{% url 'coffeeshop:add_products' %}">
 								<input class="btnAdd" type="submit" value="+">
+								</form>
 							</div>
 						</td>
 					</tr>
