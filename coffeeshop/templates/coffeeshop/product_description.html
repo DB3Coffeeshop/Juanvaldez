@@ -1,6 +1,11 @@
 {% extends 'coffeeshop/base.html' %}
+{% load static %}
 
 {% block title %} Descripción {% endblock title %}
+
+{% block letter %}
+<link rel="stylesheet" type="text/css" href="{% static 'coffeeshop/css/style_user.css' %}" />
+{% endblock letter %}
 
 {% block pestana-usuario %}
 	<nav>
