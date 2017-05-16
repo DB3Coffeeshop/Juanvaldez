@@ -4,7 +4,7 @@
 <div class="Erase">
 	<form method="POST"> {% csrf_token %}
 		<h3> Esta seguro que desea eliminar el registro del cliente {{ object.name_client }} ?</h3>
-		<button type="submit"> Si, eliminar </button>
+		<button class="btnContinuar" type="submit"> Si, eliminar </button>
 		<a class="Cancelar" href="{% url 'coffeeshop:admin_register' %}"> Cancelar </a>
 		</form>
 </div>
