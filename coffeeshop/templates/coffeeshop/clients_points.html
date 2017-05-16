@@ -1,0 +1,15 @@
+{% extends 'coffeeshop/user-base.html' %}
+{% load static %}
+{% block admi-areatrabajo %}
+	<h3>¡¡¡Clients!!!</h3>
+
+	<div class="btnsGB">
+		<form action="{% url 'coffeeshop:best_points_clients' %}">
+			<input class="btnPoor" type="submit" value="Best clients">
+		</form>
+
+		<form action="{% url 'coffeeshop:poor_points_clients' %}">
+			<input class="btnPoor" type="submit" value="Poor clients">
+		</form>
+		</div>
+{% endblock %}

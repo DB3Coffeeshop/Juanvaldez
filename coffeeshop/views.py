@@ -26,7 +26,7 @@ def h1(request):
 
 
 def h2(request):
-	return render(request, 'coffeeshop/h2.html')
+	return render(request, 'coffeeshop/clients_points.html')
 
 
 def h3(request):

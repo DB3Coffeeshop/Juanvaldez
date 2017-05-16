@@ -153,3 +153,26 @@ h3{
 	font-size: 15px;
 	width: 300px;
 }
+
+.btnsGB{
+	position: relative;
+	left: 45%;
+	width: 300px;
+	height: 100px;
+}
+
+.btnPoor{
+	border: 2px;
+	border-radius: 10px;
+	background-color: #354C81;
+	color: black;
+	font-size: 30px;
+	width: 180px;
+	height: 40px;
+	bottom: 3px;	
+}
+
+.btnPoor:hover{
+	background: #B22222;
+    color: white;
+}
