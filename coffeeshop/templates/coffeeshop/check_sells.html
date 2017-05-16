@@ -8,7 +8,44 @@
 		<li><a href=" {% url 'coffeeshop:admin_register' %}">Registrar usuario</a></li>
 	{% endblock pestanasAD%}
 
-	{% block admi-areatrabajoAD %}			
+	{% block admi-areatrabajoAD %}	
+
+		<div class = "button_table">
+			<input class="btnEdit" type="submit" value="Día">
+			<input class="btnEdit" type="submit" value="Semana">
+			<input class="btnEdit" type="submit" value="Mes">
+		</div>
+
+		<table class = "table">
+
+			<thead class="tableH">
+				<tr>
+					<td>Producto</td>
+					<td>ID factura </td>
+					<td>Cantidad vendida </td>
+					<td>Codigo de venta </td>
+					<td>Valor de venta</td>
+					<td>Fecha</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% if object_list %}
+					{% for product in object_list %}
+					<tr>
+						<td> {{ product.id_product }} </td>
+						<td> {{ product.name_product }} </td>
+						<td> {{ product.price }} </td>
+						<td> {{ product.id_provider }} </td>
+						<td> {{ product.id_promotion }} </td>
+						<td> {{ product.id_product_type }} </td>
+					</tr>
+					{% endfor %}
+				{% else %}
+					<h1> --No sells here-- </h1>
+				{% endif %}
+			</tbody>
+		</table>
 	{% endblock admi-areatrabajoAD %}
 
 	{% block img-admin %}
