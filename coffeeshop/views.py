@@ -55,13 +55,21 @@ class Client_register(CreateView):
 	model = Client
 	form_class = Client_form
 	template_name = 'coffeeshop/client.html'
-	succees_url = reverse_lazy('coffeeshop:admin_register')
+	success_url = reverse_lazy('coffeeshop:admin_register')
 
 
 
 class product_table(ListView):
 	model = Product
 	template_name = 'coffeeshop/admin_products.html'
+
+
+class Product_edit(UpdateView):
+	model = Product
+	second_model = Provider_form
+	third_model = Product_type_form
+	template_name = 'coffeeshop/add_product.html'
+	success_url = reverse_lazy('coffeeshop:product_table')
 
 
 
