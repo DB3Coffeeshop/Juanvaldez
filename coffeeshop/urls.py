@@ -22,4 +22,5 @@ urlpatterns = [
 	url(r'^product/(?P<product_id>[0-9]+)$', views.description_view, name ='product'),
 	url(r'^admin_register/delete_client/(?P<pk>\d+)$', Client_delete.as_view(), name = 'delete_client'),	
 	url(r'^products_list/delete_product/(?P<pk>\d+)$', Product_delete.as_view(), name = 'product_delete'),
+	url(r'^admin_register/edit_client/(?P<pk>\d+)$', Client_edit.as_view(), name = 'client_edit')
 ]

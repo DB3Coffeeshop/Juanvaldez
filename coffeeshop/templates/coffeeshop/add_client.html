@@ -31,11 +31,15 @@
 						<td> {{ client.points }} </td>
 						<td>
 							<div class = "button_table">
+								<form action="{% url 'coffeeshop:client_edit' client.id_client %}">
 								<input class="btnEdit" type="submit" value="Edit">
+								</form>
 								<form action="{% url 'coffeeshop:delete_client' client.id_client %}">
 								<input class="btnDelete" type="submit" value="Delete">
 								</form>
-								<input class="btnAdd" type="submit" value="+">
+								<form action="{% url 'coffeeshop:client_register' %}">
+									<input class="btnAdd" type="submit" value="+">
+								</form>
 							</div>
 						</td>
 					</tr>

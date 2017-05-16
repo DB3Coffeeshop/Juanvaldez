@@ -5,6 +5,6 @@
 <form method="POST"> {% csrf_token %}
 	<h3> Esta seguro que desea eliminar el registro el producto {{ object.name_product }} </h3>
 	<button type="submit"> Si, eliminar </button>
-	<a href={% url 'coffeeshop:admin_register' %}> Cancelar </a>
+	<a href={% url 'coffeeshop:product_table' %}> Cancelar </a>
 </form>
 {% endblock admi-areatrabajo %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse, HttpResponseRedirect
-from django.views.generic import ListView, CreateView, DeleteView
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 from django.core.urlresolvers import reverse_lazy
 #from django.http import HttpResponseNotFound, HttpResponse
 from .forms import Product_form, Product_type_form, Provider_form, Sale_form, Bill_form, Description_bill_form, Client_form
@@ -165,3 +165,10 @@ class Product_delete(DeleteView):
 	model = Product
 	template_name = 'coffeeshop/product_delete.html'
 	success_url = reverse_lazy('coffeeshop:product_table')
+
+
+class Client_edit(UpdateView):
+	model = Client
+	form_class = Client_form
+	template_name = 'coffeeshop/client.html'
+	success_url = reverse_lazy('coffeeshop:admin_register')
